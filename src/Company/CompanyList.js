@@ -12,7 +12,6 @@ function CompanyList() {
   async function getCompanyList(query) {
     let companyList = await JoblyAPI.getCompanies(query);
     setCompanies(companyList);
-    console.log(companyList)
   }
 
   useEffect(() => {

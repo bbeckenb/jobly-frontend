@@ -5,7 +5,6 @@ import {Card, CardBody, CardTitle, Form, FormGroup, Label, Input, Button} from '
 
 function UserEditProfile({ updateUser }) {
     const { currUser } = useContext(UserContext);
-    console.log(currUser)
     const INIT_STATE = {firstName: currUser.firstName, lastName: currUser.lastName, email: currUser.email, isAdmin: currUser.isAdmin}
     const [formData, setFormData] = useState(INIT_STATE);
     const [isChecked, setIsChecked] = useState(currUser.isAdmin);

@@ -10,7 +10,6 @@ function JobCard({id, title, salary, equity, company}) {
 
     async function handleApply() {
         if (alreadyApplied(id)) {
-            console.log('here')
             return;
         }
         let out = await applyToJob(id);

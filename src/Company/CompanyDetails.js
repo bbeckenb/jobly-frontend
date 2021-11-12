@@ -8,19 +8,15 @@ import { useParams } from "react-router";
 function CompanyDetails() {
     const [company, setCompany] = useState({});
     const [isLoading, setLoading] = useState(true);
-    // need to handle redirect if handle is not found
     const {handle} = useParams();
     
     useEffect(() => {async function getCompanyDetails() {
         let companyDetails = await JoblyAPI.getCompany(handle);
         setCompany(companyDetails)
         setLoading(false)
-        console.log(companyDetails)
     }
     getCompanyDetails();
     }, [handle])
-
-    console.log(company)
 
     if (isLoading) {
         return <p>Loading &hellip;</p>;

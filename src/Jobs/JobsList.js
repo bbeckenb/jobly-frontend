@@ -9,7 +9,6 @@ function JobsList() {
   async function getJobsList(query) {
     let jobsList = await JoblyAPI.getJobs(query);
     setJobs(jobsList);
-    console.log(jobsList)
   }
 
   useEffect(() => {
