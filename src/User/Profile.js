@@ -35,7 +35,7 @@ function Profile({ updateUser }) {
             <ListGroup>
                 <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>First Name: {currUser.firstName}</ListGroupItem>
                 <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>Last Name: {currUser.lastName}</ListGroupItem>
-                <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>Email: {currUser.lastName}</ListGroupItem>
+                <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>Email: {currUser.email}</ListGroupItem>
             </ListGroup>
             <Button style={{width:'fit-content', backgroundColor:'#21618C'}} onClick={flipToggle}>Edit Profile</Button>
 
