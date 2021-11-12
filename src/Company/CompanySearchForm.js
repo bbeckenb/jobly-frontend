@@ -37,7 +37,7 @@ function CompanySearchForm({filterCompanies}) {
           </CardTitle>
           <Form onSubmit={handleSubmit}>
             <FormGroup>
-              <Label htmlFor="name">Includes Term:</Label>
+              <Label htmlFor="name">Title Includes Term:</Label>
                 <Input
                     id="name"
                     name="name"
@@ -53,6 +53,7 @@ function CompanySearchForm({filterCompanies}) {
                     id="minEmployees"
                     name="minEmployees"
                     type="number"
+                    min='0'
                     placeholder="Minimum Employees"
                     value={formData.minEmployees}
                     onChange={handleChange}
@@ -65,6 +66,7 @@ function CompanySearchForm({filterCompanies}) {
                       id="maxEmployees"
                       name="maxEmployees"
                       type="number"
+                      min='0'
                       placeholder="Maximum Employees"
                       value={formData.maxEmployees}
                       onChange={handleChange}

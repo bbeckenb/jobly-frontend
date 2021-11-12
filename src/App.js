@@ -10,9 +10,11 @@ import UserContext from './User/UserContext';
 import useLocalStorage from './hooks/useLocalStorage';
 
 export const TOKEN_STORAGE_ID = 'jobly-token';
+export const EXISTING_USERNAME = 'jobly-user';
 
 function App() {
-  const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID, null);
+  const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
+  const [existingUser, setExistingUser] = useLocalStorage(EXISTING_USERNAME);
   const [currUser, setCurrUser] = useState(null);
 
   useEffect(function getCurrUser() {
@@ -36,6 +38,8 @@ function App() {
   async function signUpUser(userInfoObj) {
     try {
       let newUser = await JoblyApi.registerNewUser(userInfoObj);
+      let {username} = jwt.decode(newUser.token);
+      setExistingUser(username);
       setToken(newUser.token);
       JoblyApi.token = newUser.token;
     } catch (err) {
@@ -46,6 +50,8 @@ function App() {
   async function loginUser(userInfoObj) {
     try {
       let newUser = await JoblyApi.loginExistingUser(userInfoObj);
+      let {username} = jwt.decode(newUser.token);
+      setExistingUser(username);
       setToken(newUser.token);
       JoblyApi.token = newUser.token;
     } catch (err) {
@@ -86,7 +92,7 @@ function App() {
 
   return (
     <div className="App" style={{height:'100vh', backgroundColor:'#A3E4D7'}}>
-      <UserContext.Provider value={{currUser, applyToJob, alreadyApplied}}>
+      <UserContext.Provider value={{currUser, existingUser, applyToJob, alreadyApplied}}>
         <BrowserRouter>
           <NavBar logout={logout} />
           <Routes signUpUser={signUpUser} loginUser={loginUser} updateUser={updateUser}/>

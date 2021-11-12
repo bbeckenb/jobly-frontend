@@ -101,7 +101,6 @@ function UserSignUpForm({signUpUser}) {
                             checked={isChecked}
                             value={formData.isAdmin}
                             onChange={handleChangeCheckBox}
-                            style={{ backgroundColor:'#FDF2E9'}}
                         />
                     </FormGroup>
                     <Button style={{backgroundColor:'#21618C'}}>Submit</Button>

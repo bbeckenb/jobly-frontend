@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { useHistory } from 'react-router-dom';
 import {Card, CardBody, CardTitle, Form, FormGroup, Label, Input, Button, Container, Row} from 'reactstrap';
+import UserContext from './UserContext';
 
 function UserLoginForm({loginUser}) {
-    const INIT_STATE = {username: '', password:''}
+    const { existingUser } = useContext(UserContext);
+    console.log(existingUser)
+    const INIT_STATE =  existingUser ? {username: existingUser, password:''} : {username: '', password:''}
     const [formData, setFormData] = useState(INIT_STATE);
     let history = useHistory();
     

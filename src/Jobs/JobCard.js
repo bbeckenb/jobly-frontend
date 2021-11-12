@@ -24,8 +24,8 @@ function JobCard({id, title, salary, equity, company}) {
                 <CardText>{company}</CardText>
                 <ListGroup>
                     <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>Id: {id}</ListGroupItem>
-                    <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>Salary: {salary}</ListGroupItem>
-                    <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>Equity: {equity}</ListGroupItem>
+                    <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>Salary:{['0', null].includes(salary) ? ' Volunteer' : `$${salary}`}</ListGroupItem>
+                    <ListGroupItem style={{ backgroundColor:'#FDF2E9'}}>Equity: {['0', '0.0', null].includes(equity) ? 'None' : equity}</ListGroupItem>
                 </ListGroup>
                 {status ? <h3>Applied!</h3> : <Button style={{backgroundColor:'#21618C'}} onClick={evt => handleApply()} >Apply</Button>}
             </CardBody>

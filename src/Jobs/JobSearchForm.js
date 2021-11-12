@@ -44,7 +44,7 @@ function JobSearchForm({filterJobs}) {
               </CardTitle>
               <Form onSubmit={handleSubmit}>
                   <FormGroup>
-                      <Label htmlFor="title">Includes Term:</Label>
+                      <Label htmlFor="title">Title Includes Term:</Label>
                       <Input
                           id="title"
                           name="title"
@@ -60,6 +60,7 @@ function JobSearchForm({filterJobs}) {
                           id="minSalary"
                           name="minSalary"
                           type="number"
+                          min='0'
                           placeholder="Minimum Employees"
                           value={formData.minSalary}
                           onChange={handleChange}
@@ -75,7 +76,6 @@ function JobSearchForm({filterJobs}) {
                           checked={isChecked}
                           value={formData.hasEquity}
                           onChange={handleChangeCheckBox}
-                          style={{ backgroundColor:'#FDF2E9'}}
                       />
                   </FormGroup>
                   <Button style={{backgroundColor:'#21618C'}}>Filter</Button>
